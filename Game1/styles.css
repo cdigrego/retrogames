@@ -1,3 +1,4 @@
+/* Stili globali */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -45,16 +46,47 @@ main {
     margin-bottom: 20px;
 }
 
+/* Stile per il canvas del gioco */
 canvas {
     background-color: #000;
     border: 2px solid #333;
 }
 
+/* Stile per i pulsanti di controllo del gioco */
+#controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#controls button {
+    width: 80px;
+    height: 80px;
+    font-size: 36px;
+    margin: 10px;
+    background-color: #ddd;
+    border: none;
+    border-radius: 10x;
+    cursor: pointer;
+}
+
+#controls button:active {
+    background-color: #bbb;
+}
+
+#controls div {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Stile per la leaderboard */
 .leaderboard {
     margin-top: 20px;
     text-align: center;
 }
 
+/* Stile per il footer */
 footer {
     background-color: #333;
     color: #fff;
