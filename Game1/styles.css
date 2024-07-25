@@ -61,10 +61,10 @@ canvas {
 }
 
 #controls button {
-    width: 80px;
-    height: 80px;
-    font-size: 36px;
-    margin: 10px;
+    width: 70px;
+    height: 70px;
+    font-size: 30px;
+    margin: 7px;
     background-color: #ddd;
     border: none;
     border-radius: 10x;
@@ -82,7 +82,7 @@ canvas {
 
 /* Stile per la leaderboard */
 .leaderboard {
-    margin-top: 20px;
+    margin-top: 7px;
     text-align: center;
 }
 
