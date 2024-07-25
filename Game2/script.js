@@ -1,17 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
     const game = document.getElementById('game');
     const pacman = document.getElementById('pacman');
+    const ghost1 = document.getElementById('ghost1');
+    const ghost2 = document.getElementById('ghost2');
     const step = 30; // Step size in pixels
     const gameSize = 600; // Size of the game board
 
     let pacmanX = 0;
     let pacmanY = 0;
+    let ghost1X = 3 * step;
+    let ghost1Y = 3 * step;
+    let ghost2X = 5 * step;
+    let ghost2Y = 5 * step;
 
-    // Generate walls
+    // Labirinto di esempio
     const walls = [
-        { x: 1, y: 1 }, { x: 2, y: 1 }, { x: 3, y: 1 },
-        { x: 1, y: 2 }, { x: 3, y: 2 },
-        { x: 1, y: 3 }, { x: 2, y: 3 }, { x: 3, y: 3 },
+        { x: 1, y: 1 }, { x: 2, y: 1 }, { x: 3, y: 1 }, { x: 4, y: 1 },
+        { x: 1, y: 2 }, { x: 4, y: 2 },
+        { x: 1, y: 3 }, { x: 4, y: 3 },
+        { x: 1, y: 4 }, { x: 2, y: 4 }, { x: 3, y: 4 }, { x: 4, y: 4 },
     ];
 
     walls.forEach(wall => {
@@ -22,18 +29,26 @@ document.addEventListener('DOMContentLoaded', () => {
         game.appendChild(wallElement);
     });
 
-    // Generate dots
-    const dots = [
-        { x: 4, y: 4 }, { x: 5, y: 5 },
-    ];
+    // Punti da mangiare
+    const dots = [];
+    for (let y = 0; y < gameSize / step; y++) {
+        for (let x = 0; x < gameSize / step; x++) {
+            if (!walls.some(wall => wall.x === x && wall.y === y)) {
+                const dotElement = document.createElement('div');
+                dotElement.classList.add('dot');
+                dotElement.style.left = x * step + 10 + 'px';
+                dotElement.style.top = y * step + 10 + 'px';
+                game.appendChild(dotElement);
+                dots.push({ x: x * step, y: y * step, element: dotElement });
+            }
+        }
+    }
 
-    dots.forEach(dot => {
-        const dotElement = document.createElement('div');
-        dotElement.classList.add('dot');
-        dotElement.style.left = dot.x * step + 10 + 'px'; // Center the dot
-        dotElement.style.top = dot.y * step + 10 + 'px'; // Center the dot
-        game.appendChild(dotElement);
-    });
+    // Posizionamento iniziale dei fantasmi
+    ghost1.style.left = ghost1X + 'px';
+    ghost1.style.top = ghost1Y + 'px';
+    ghost2.style.left = ghost2X + 'px';
+    ghost2.style.top = ghost2Y + 'px';
 
     document.addEventListener('keydown', (e) => {
         let newX = pacmanX;
@@ -74,13 +89,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function checkDotCollision() {
-        const dotElements = document.querySelectorAll('.dot');
-        dotElements.forEach(dot => {
-            const dotX = parseInt(dot.style.left);
-            const dotY = parseInt(dot.style.top);
-            if (pacmanX + 10 === dotX && pacmanY + 10 === dotY) {
-                dot.remove();
+        for (let i = 0; i < dots.length; i++) {
+            const dot = dots[i];
+            if (pacmanX + 10 === dot.x + 10 && pacmanY + 10 === dot.y + 10) {
+                dot.element.remove();
+                dots.splice(i, 1);
+                break;
             }
-        });
+        }
     }
+
+    function moveGhosts() {
+        moveGhost(ghost1, ghost1X, ghost1Y);
+        moveGhost(ghost2, ghost2X, ghost2Y);
+    }
+
+    function moveGhost(ghost, ghostX, ghostY) {
+        let directions = [
+            { x: ghostX + step, y: ghostY },
+            { x: ghostX - step, y: ghostY },
+            { x: ghostX, y: ghostY + step },
+            { x: ghostX, y: ghostY - step }
+        ];
+
+        directions = directions.filter(dir => canMove(dir.x, dir.y));
+
+        if (directions.length > 0) {
+            const move = directions[Math.floor(Math.random() * directions.length)];
+            ghost.style.left = move.x + 'px';
+            ghost.style.top = move.y + 'px';
+
+            if (ghost === ghost1) {
+                ghost1X = move.x;
+                ghost1Y = move.y;
+            } else {
+                ghost2X = move.x;
+                ghost2Y = move.y;
+            }
+        }
+    }
+
+    setInterval(moveGhosts, 500);
 });
