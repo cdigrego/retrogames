@@ -55,22 +55,47 @@ canvas {
 /* Stile per i pulsanti di controllo del gioco */
 #controls {
     display: flex;
-    justify-content: center; /* Centrato orizzontalmente */
-    gap: 10px; /* Spazio tra i pulsanti */
-    margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Spazio tra i gruppi di pulsanti */
 }
 
-#controls button {
-    width: 50px; /* Ridotto da 70px */
-    height: 50px; /* Ridotto da 70px */
-    font-size: 20px; /* Ridotto da 30px */
+#controls .direction-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Spazio tra i pulsanti Up e Down */
+}
+
+#controls .direction-controls button {
+    width: 50px; /* Dimensioni dei pulsanti */
+    height: 50px;
+    font-size: 20px;
     background-color: #ddd;
     border: none;
-    border-radius: 5px; /* Corretto da 10x a 5px */
+    border-radius: 5px;
     cursor: pointer;
 }
 
-#controls button:active {
+#controls .direction-controls button:active {
+    background-color: #bbb;
+}
+
+#controls .other-controls {
+    display: flex;
+    gap: 10px; /* Spazio tra gli altri pulsanti */
+}
+
+#controls .other-controls button {
+    width: 50px; /* Dimensioni dei pulsanti */
+    height: 50px;
+    font-size: 20px;
+    background-color: #ddd;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#controls .other-controls button:active {
     background-color: #bbb;
 }
 
