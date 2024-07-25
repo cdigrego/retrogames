@@ -60,31 +60,18 @@ canvas {
     gap: 10px; /* Spazio tra i gruppi di pulsanti */
 }
 
+#controls .button-row {
+    display: flex;
+    gap: 10px; /* Spazio tra i pulsanti */
+}
+
 #controls .direction-controls {
     display: flex;
     flex-direction: column;
     gap: 10px; /* Spazio tra i pulsanti Up e Down */
 }
 
-#controls .direction-controls button {
-    width: 50px; /* Dimensioni dei pulsanti */
-    height: 50px;
-    font-size: 20px;
-    background-color: #ddd;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#controls .direction-controls button:active {
-    background-color: #bbb;
-}
-
-#controls .other-controls {
-    display: flex;
-    gap: 10px; /* Spazio tra gli altri pulsanti */
-}
-
+#controls .direction-controls button,
 #controls .other-controls button {
     width: 50px; /* Dimensioni dei pulsanti */
     height: 50px;
@@ -95,6 +82,7 @@ canvas {
     cursor: pointer;
 }
 
+#controls .direction-controls button:active,
 #controls .other-controls button:active {
     background-color: #bbb;
 }
