@@ -17,24 +17,22 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <div class="game-controls">
-            <input type="text" id="playerName" placeholder="Enter your name">
-            <button id="startButton">Start Game</button>
-            <button id="endButton">End Game</button>
-            <div>Score: <span id="score">0</span></div>
-        </div>
+   <main>
+    <div class="game-controls">
         <canvas id="gameCanvas" width="400" height="400"></canvas>
         <div id="controls">
-            <button id="up">↑</button>
-            <div>
-                <button id="down">←</button>
-                <button id="right">→</button>
+            <div class="direction-controls">
+                <button id="up">↑</button>
+                <button id="down">↓</button>
             </div>
-            <button id="left">↓</button>
+            <div class="other-controls">
+                <button id="left">←</button>
+                <button id="right">→</button>
+                <!-- Aggiungi altri pulsanti qui se necessario -->
+            </div>
         </div>
-        <div class="leaderboard">
-            <h2>Leaderboard</h2>
+    </div>
+    <div class="leaderboard">
             <ul id="leaderboardList"></ul>
         </div>
     </main>
