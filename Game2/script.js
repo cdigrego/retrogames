@@ -19,6 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
         { x: 1, y: 2 }, { x: 4, y: 2 },
         { x: 1, y: 3 }, { x: 4, y: 3 },
         { x: 1, y: 4 }, { x: 2, y: 4 }, { x: 3, y: 4 }, { x: 4, y: 4 },
+        { x: 6, y: 1 }, { x: 7, y: 1 }, { x: 8, y: 1 },
+        { x: 6, y: 2 }, { x: 8, y: 2 },
+        { x: 6, y: 3 }, { x: 8, y: 3 },
+        { x: 6, y: 4 }, { x: 7, y: 4 }, { x: 8, y: 4 },
+        // Additional walls can be added here
     ];
 
     walls.forEach(wall => {
@@ -75,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
             pacman.style.top = pacmanY + 'px';
             pacman.style.left = pacmanX + 'px';
             checkDotCollision();
+            checkGhostCollision();
         }
     });
 
@@ -99,9 +105,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function checkGhostCollision() {
+        if (
+            (pacmanX === ghost1X && pacmanY === ghost1Y) ||
+            (pacmanX === ghost2X && pacmanY === ghost2Y)
+        ) {
+            alert('Game Over!');
+            location.reload();
+        }
+    }
+
     function moveGhosts() {
         moveGhost(ghost1, ghost1X, ghost1Y);
         moveGhost(ghost2, ghost2X, ghost2Y);
+        checkGhostCollision();
     }
 
     function moveGhost(ghost, ghostX, ghostY) {
