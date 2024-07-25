@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+}
+
+#game {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    background-color: #222;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#pacman {
+    width: 30px;
+    height: 30px;
+    background-color: yellow;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.1s;
+}
