@@ -55,19 +55,18 @@ canvas {
 /* Stile per i pulsanti di controllo del gioco */
 #controls {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center; /* Centrato orizzontalmente */
+    gap: 10px; /* Spazio tra i pulsanti */
     margin-top: 20px;
 }
 
 #controls button {
-    width: 70px;
-    height: 70px;
-    font-size: 30px;
-    margin: 7px;
+    width: 50px; /* Ridotto da 70px */
+    height: 50px; /* Ridotto da 70px */
+    font-size: 20px; /* Ridotto da 30px */
     background-color: #ddd;
     border: none;
-    border-radius: 10x;
+    border-radius: 5px; /* Corretto da 10x a 5px */
     cursor: pointer;
 }
 
@@ -75,14 +74,9 @@ canvas {
     background-color: #bbb;
 }
 
-#controls div {
-    display: flex;
-    flex-direction: row;
-}
-
 /* Stile per la leaderboard */
 .leaderboard {
-    margin-top: 7px;
+    margin-top: 20px;
     text-align: center;
 }
 
