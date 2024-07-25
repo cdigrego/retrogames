@@ -1,0 +1,108 @@
+/* Stili globali */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-controls {
+    margin-bottom: 20px;
+}
+
+/* Stile per il canvas del gioco */
+canvas {
+    background-color: #000;
+    border: 2px solid #333;
+}
+
+/* Stile per i pulsanti di controllo del gioco */
+#controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Spazio tra i gruppi di pulsanti */
+}
+
+#controls .button-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px; /* Spazio tra i pulsanti */
+}
+
+#controls .vertical-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Spazio tra i pulsanti Up e Down */
+}
+
+}
+
+#controls button {
+    width: 70px; /* Dimensioni dei pulsanti */
+    height: 70px;
+    font-size: 30px;
+    background-color: #ddd;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+#controls button:active {
+    background-color: #bbb;
+}
+
+/* Stile per la leaderboard */
+.leaderboard {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Stile per il footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
