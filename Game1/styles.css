@@ -62,17 +62,23 @@ canvas {
 
 #controls .button-row {
     display: flex;
-    gap: 10px; /* Spazio tra i pulsanti */
+    flex-direction: row;
+    gap: 10px; /* Spazio tra i gruppi di pulsanti */
 }
 
-#controls .direction-controls {
+#controls .vertical-controls {
     display: flex;
     flex-direction: column;
     gap: 10px; /* Spazio tra i pulsanti Up e Down */
 }
 
-#controls .direction-controls button,
-#controls .other-controls button {
+#controls .horizontal-controls {
+    display: flex;
+    flex-direction: row;
+    gap: 10px; /* Spazio tra i pulsanti Left e Right */
+}
+
+#controls button {
     width: 50px; /* Dimensioni dei pulsanti */
     height: 50px;
     font-size: 20px;
@@ -82,8 +88,7 @@ canvas {
     cursor: pointer;
 }
 
-#controls .direction-controls button:active,
-#controls .other-controls button:active {
+#controls button:active {
     background-color: #bbb;
 }
 
