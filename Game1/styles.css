@@ -74,30 +74,15 @@ canvas {
     gap: 10px; /* Spazio tra i pulsanti Up e Down */
 }
 
-#controls .horizontal-controls {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px; /* Spazio tra i pulsanti Left e Right */
-}
-
-#controls .horizontal-controls button {
-    width: 50px; /* Dimensioni dei pulsanti */
-    height: 50px;
-    font-size: 20px;
-    background-color: #ddd;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
 #controls button {
-    width: 50px; /* Dimensioni dei pulsanti */
-    height: 50px;
-    font-size: 20px;
+    width: 60px; /* Dimensioni dei pulsanti */
+    height: 60px;
+    font-size: 30px;
     background-color: #ddd;
     border: none;
-    border-radius: 5px;
+    border-radius: 7px;
     cursor: pointer;
 }
 
