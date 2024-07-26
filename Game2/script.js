@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ghost4 = document.getElementById('ghost4');
     const step = 30; // Step size in pixels
     const gameSize = 400; // Size of the game board
+	 const gameHeight = gameSize * 0.75; // Height is 75% of the width
 
     let pacmanX = 0;
     let pacmanY = 0;
