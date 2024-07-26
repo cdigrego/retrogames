@@ -1,3 +1,4 @@
+/* Stile per il corpo della pagina */
 body {
     margin: 0;
     display: flex;
@@ -7,6 +8,7 @@ body {
     background-color: #000;
 }
 
+/* Stile per il contenitore del gioco */
 #game {
     position: relative;
     width: 600px;
@@ -16,6 +18,7 @@ body {
     flex-wrap: wrap;
 }
 
+/* Stile per Pacman */
 #pacman {
     width: 30px;
     height: 30px;
@@ -27,6 +30,7 @@ body {
     transition: all 0.1s;
 }
 
+/* Stile per i muri */
 .wall {
     width: 30px;
     height: 30px;
@@ -34,6 +38,7 @@ body {
     position: absolute;
 }
 
+/* Stile per i punti */
 .dot {
     width: 10px;
     height: 10px;
@@ -42,10 +47,48 @@ body {
     position: absolute;
 }
 
+/* Stile per i fantasmi */
 .ghost {
     width: 30px;
     height: 30px;
     background-color: red;
     border-radius: 50%;
     position: absolute;
+}
+
+/* Stile per i pulsanti di controllo */
+.controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.control-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.controls button {
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+    border: none;
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.controls button:hover {
+    background-color: #666;
+}
+
+.controls button:active {
+    background-color: #333;
 }
