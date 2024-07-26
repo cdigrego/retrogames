@@ -1,4 +1,3 @@
-/* Base styles */
 body {
     margin: 0;
     display: flex;
@@ -6,21 +5,17 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #000;
-    overflow: hidden; /* Prevents scrollbars */
 }
 
-/* Game container */
 #game {
     position: relative;
-    width: calc(100vw - 100px); /* Reduce width to leave space for controls on the right */
-    height: 100vh;
+    width: 400px; /* Update this value */
+    height: 300px; /* Update this value based on gameSize and proportion */
     background-color: #222;
     display: flex;
     flex-wrap: wrap;
-    box-sizing: border-box; /* Ensures padding and borders are included in element's total width and height */
 }
 
-/* Pacman */
 #pacman {
     width: 30px;
     height: 30px;
@@ -32,7 +27,6 @@ body {
     transition: all 0.1s;
 }
 
-/* Wall */
 .wall {
     width: 30px;
     height: 30px;
@@ -40,54 +34,6 @@ body {
     position: absolute;
 }
 
-/* Dot */
 .dot {
     width: 10px;
-    height: 10px;
-    background-color: white;
-    border-radius: 50%;
-    position: absolute;
-}
-
-/* Ghost */
-.ghost {
-    width: 30px;
-    height: 30px;
-    background-color: red;
-    border-radius: 50%;
-    position: absolute;
-}
-
-/* Controls container */
-.controls {
-    position: fixed;
-    right: 10px; /* Position controls slightly from the right edge */
-    bottom: 20px; /* Adjust position from the bottom edge */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 10; /* Ensure controls are above the game */
-}
-
-/* Row of control buttons */
-.control-row {
-    display: flex;
-    margin: 5px;
-}
-
-/* Control buttons */
-button {
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-    border: none;
-    background-color: #666;
-    color: white;
-    border-radius: 5px;
-    margin: 5px;
-    cursor: pointer;
-}
-
-button:active {
-    background-color: #444;
-}
+   
