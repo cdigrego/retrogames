@@ -44,19 +44,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Quinto quadrato
         { x: 12, y: 1 }, 
-        { x: 12, y: 2 }, 
+        { x: 12, y: 2 },     { x: 13, y: 2 }, 
         { x: 12, y: 3 }, 
         { x: 12, y: 4 },
 
         // Sesto quadrato
         { x: 16, y: 1 }, 
-        { x: 16, y: 2 }, 
+        { x: 16, y: 2 },  { x: 17, y: 2 }, 
         { x: 16, y: 3 }, 
         { x: 16, y: 4 },
 
         // Settimo quadrato
         { x: 3, y: 7 }, 
-        { x: 3, y: 8 }, 
+        { x: 3, y: 8 }, { x: 4, y: 8 }, 
         { x: 3, y: 9}, 
         { x: 3, y: 10 },
 
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { x: 4, y: 12 }, 
         { x: 4, y: 13 }, 
         { x: 4, y: 14}, 
-        { x: 4, y: 15 },
+        { x: 4, y: 15 },  { x: 5, y: 15 },
 
         // Nono quadrato
         { x: 7, y: 16},  { x: 8, y: 16},  { x: 9, y: 16}, 
