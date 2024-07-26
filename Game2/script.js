@@ -15,16 +15,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Labirinto di esempio
     const walls = [
-        { x: 1, y: 1 }, { x: 2, y: 1 }, { x: 3, y: 1 }, { x: 4, y: 1 },
-        { x: 1, y: 2 }, { x: 4, y: 2 },
-        { x: 1, y: 3 }, { x: 4, y: 3 },
-        { x: 1, y: 4 }, { x: 2, y: 4 }, { x: 3, y: 4 }, { x: 4, y: 4 },
-        { x: 6, y: 1 }, { x: 7, y: 1 }, { x: 8, y: 1 },
-        { x: 6, y: 2 }, { x: 8, y: 2 },
-        { x: 6, y: 3 }, { x: 8, y: 3 },
-        { x: 6, y: 4 }, { x: 7, y: 4 }, { x: 8, y: 4 },
-        // Additional walls can be added here
-    ];
+    { x: 1, y: 1 }, { x: 2, y: 1 }, { x: 3, y: 1 }, { x: 4, y: 1 },
+    { x: 1, y: 2 }, { x: 4, y: 2 },
+    { x: 1, y: 3 }, { x: 4, y: 3 },
+    { x: 1, y: 4 }, { x: 2, y: 4 }, { x: 3, y: 4 }, { x: 4, y: 4 },
+    { x: 6, y: 1 }, { x: 7, y: 1 }, { x: 8, y: 1 },
+    { x: 6, y: 2 }, { x: 8, y: 2 },
+    { x: 6, y: 3 }, { x: 8, y: 3 },
+    { x: 6, y: 4 }, { x: 7, y: 4 }, { x: 8, y: 4 },
+    { x: 10, y: 6 }, { x: 11, y: 6 }, { x: 12, y: 6 }, { x: 13, y: 6 },
+    { x: 10, y: 7 }, { x: 13, y: 7 },
+    { x: 10, y: 8 }, { x: 13, y: 8 },
+    { x: 10, y: 9 }, { x: 11, y: 9 }, { x: 12, y: 9 }, { x: 13, y: 9 },
+    { x: 15, y: 11 }, { x: 16, y: 11 }, { x: 17, y: 11 },
+    { x: 15, y: 12 }, { x: 17, y: 12 },
+    { x: 15, y: 13 }, { x: 17, y: 13 },
+    { x: 15, y: 14 }, { x: 16, y: 14 }, { x: 17, y: 14 }
+];
+
 
     walls.forEach(wall => {
         const wallElement = document.createElement('div');
