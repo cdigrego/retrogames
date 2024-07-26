@@ -63,6 +63,13 @@ document.addEventListener('DOMContentLoaded', () => {
     { x: 4, y: 14}, 
     { x: 4, y: 15 }, 
 	
+	
+	 // 6 quadrato
+    { x: 7, y: 16}, 
+    { x: 7, y: 17}, 
+    { x: 7, y: 18}, 
+    
+	
 ];
 
 
