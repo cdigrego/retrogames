@@ -153,6 +153,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
             }
         }
+        checkVictory(); // Controlla se tutti i punti sono stati mangiati
+    }
+
+    function checkVictory() {
+        if (dots.length === 0) {
+            alert('Congratulations! You won!');
+            location.reload();
+        }
     }
 
     function checkGhostCollision() {
@@ -168,19 +176,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function moveGhosts() {
-        moveGhost(ghost1, 1);
-        moveGhost(ghost2, 2);
-        moveGhost(ghost3, 3);
-        moveGhost(ghost4, 4);
+        moveGhost(ghost1, ghost1X, ghost1Y, 1);
+        moveGhost(ghost2, ghost2X, ghost2Y, 2);
+        moveGhost(ghost3, ghost3X, ghost3Y, 3);
+        moveGhost(ghost4, ghost4X, ghost4Y, 4);
         checkGhostCollision();
     }
 
-    function moveGhost(ghost, ghostNum) {
+    function moveGhost(ghost, ghostX, ghostY, ghostNum) {
         let directions = [
-            { x: ghost.offsetLeft + step, y: ghost.offsetTop },
-            { x: ghost.offsetLeft - step, y: ghost.offsetTop },
-            { x: ghost.offsetLeft, y: ghost.offsetTop + step },
-            { x: ghost.offsetLeft, y: ghost.offsetTop - step }
+            { x: ghostX + step, y: ghostY },
+            { x: ghostX - step, y: ghostY },
+            { x: ghostX, y: ghostY + step },
+            { x: ghostX, y: ghostY - step }
         ];
 
         directions = directions.filter(dir => canMove(dir.x, dir.y));
