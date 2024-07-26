@@ -9,8 +9,8 @@ body {
 
 #game {
     position: relative;
-    width: 400px; /* Update this value */
-    height: 300px; /* Update this value based on gameSize and proportion */
+    width: 600px;
+    height: 600px;
     background-color: #222;
     display: flex;
     flex-wrap: wrap;
@@ -36,4 +36,16 @@ body {
 
 .dot {
     width: 10px;
-   
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.ghost {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+}

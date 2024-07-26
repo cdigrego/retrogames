@@ -6,8 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ghost3 = document.getElementById('ghost3');
     const ghost4 = document.getElementById('ghost4');
     const step = 30; // Step size in pixels
-    const gameSize = 400; // Size of the game board
-	 const gameHeight = gameSize * 0.75; // Height is 75% of the width
+    const gameSize = 600; // Size of the game board
 
     let pacmanX = 0;
     let pacmanY = 0;
@@ -26,38 +25,51 @@ document.addEventListener('DOMContentLoaded', () => {
         { x: 1, y: 1 }, { x: 2, y: 1 }, { x: 3, y: 1 }, { x: 4, y: 1 },
         { x: 1, y: 2 }, { x: 4, y: 2 },
         { x: 1, y: 3 }, { x: 4, y: 3 },
-        { x: 1, y: 4 }, { x: 2, y: 4 }, // x: 3, y: 4 , //  x: 4, y: 4 apre sotto,
+        { x: 1, y: 4 }, { x: 2, y: 4 }, // { x: 3, y: 4 }, // { x: 4, y: 4 } apre sotto,
         // Secondo quadrato
         { x: 6, y: 1 }, { x: 8, y: 1 },
         { x: 6, y: 2 }, { x: 8, y: 2 },
         { x: 6, y: 3 }, { x: 8, y: 3 },
         { x: 6, y: 4 }, { x: 7, y: 4 }, { x: 8, y: 4 },
-        // 3 quadrato
-        { x: 10, y: 6 }, { x: 11, y: 6 },// { x: 12, y: 6 }, { x: 13, y: 6 },
+        // Terzo quadrato
+        { x: 10, y: 6 }, { x: 11, y: 6 }, // { x: 12, y: 6 }, { x: 13, y: 6 },
         { x: 10, y: 7 }, { x: 13, y: 7 },
         { x: 10, y: 8 }, { x: 13, y: 8 },
         { x: 10, y: 9 }, { x: 11, y: 9 }, { x: 12, y: 9 }, { x: 13, y: 9 },
-       
-        // 5 quadrato
+        // Quarto quadrato
+        { x: 15, y: 11 }, { x: 16, y: 11 }, { x: 17, y: 11 },
+        { x: 15, y: 12 }, { x: 17, y: 12 },
+        { x: 15, y: 13 }, // { x: 17, y: 13 },
+        { x: 15, y: 14 }, { x: 16, y: 14 }, { x: 17, y: 14 },
+
+        // Quinto quadrato
         { x: 12, y: 1 }, 
-        { x: 12, y: 2 }, 
+        { x: 12, y: 2 },     { x: 13, y: 2 }, 
         { x: 12, y: 3 }, 
-        { x: 12, y: 4 }, 
-      
-        // 6 quadrato
+        { x: 12, y: 4 },
+
+        // Sesto quadrato
+        { x: 16, y: 1 }, 
+        { x: 16, y: 2 },  { x: 17, y: 2 }, 
+        { x: 16, y: 3 }, 
+        { x: 16, y: 4 },
+
+        // Settimo quadrato
         { x: 3, y: 7 }, 
-        { x: 3, y: 8 }, 
+        { x: 3, y: 8 }, { x: 4, y: 8 }, 
         { x: 3, y: 9}, 
-        { x: 3, y: 10 }, 
-        // 6 quadrato
+        { x: 3, y: 10 },
+
+        // Ottavo quadrato
         { x: 4, y: 12 }, 
         { x: 4, y: 13 }, 
         { x: 4, y: 14}, 
-        { x: 4, y: 15 }, 
-        // 6 quadrato
+        { x: 4, y: 15 },  { x: 5, y: 15 },
+
+        // Nono quadrato
         { x: 7, y: 16},  { x: 8, y: 16},  { x: 9, y: 16}, 
         { x: 7, y: 17}, 
-        { x: 7, y: 18 },  
+        { x: 7, y: 18}, 
     ];
 
     walls.forEach(wall => {
@@ -93,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ghost4.style.left = ghost4X + 'px';
     ghost4.style.top = ghost4Y + 'px';
 
-    // Gestione dei tasti
     document.addEventListener('keydown', (e) => {
         let newX = pacmanX;
         let newY = pacmanY;
@@ -123,25 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Gestione dei pulsanti
-    document.getElementById('up').addEventListener('click', () => movePacman(0, -step));
-    document.getElementById('down').addEventListener('click', () => movePacman(0, step));
-    document.getElementById('left').addEventListener('click', () => movePacman(-step, 0));
-    document.getElementById('right').addEventListener('click', () => movePacman(step, 0));
-
-    function movePacman(dx, dy) {
-        const newX = pacmanX + dx;
-        const newY = pacmanY + dy;
-        if (canMove(newX, newY)) {
-            pacmanX = newX;
-            pacmanY = newY;
-            pacman.style.top = pacmanY + 'px';
-            pacman.style.left = pacmanX + 'px';
-            checkDotCollision();
-            checkGhostCollision();
-        }
-    }
-
     function canMove(x, y) {
         if (x < 0 || x >= gameSize || y < 0 || y >= gameSize) return false;
 
@@ -158,11 +150,16 @@ document.addEventListener('DOMContentLoaded', () => {
             if (pacmanX + 10 === dot.x + 10 && pacmanY + 10 === dot.y + 10) {
                 dot.element.remove();
                 dots.splice(i, 1);
-                if (dots.length === 0) {
-                    alert('Congratulazioni! Hai vinto!');
-                }
                 break;
             }
+        }
+        checkVictory(); // Controlla se tutti i punti sono stati mangiati
+    }
+
+    function checkVictory() {
+        if (dots.length === 0) {
+            alert('Congratulations! You won!');
+            location.reload();
         }
     }
 
@@ -170,8 +167,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (
             (pacmanX === ghost1X && pacmanY === ghost1Y) ||
             (pacmanX === ghost2X && pacmanY === ghost2Y) ||
-            (pacmanX === ghost3X && pacmanY === ghost3Y) ||
-            (pacmanX === ghost4X && pacmanY === ghost4Y)
+            (pacmanX === ghost3X && pacmanY === ghost3Y) ||		
+            (pacmanX === ghost4X && pacmanY === ghost4Y)			
         ) {
             alert('Game Over!');
             location.reload();
@@ -179,14 +176,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function moveGhosts() {
-        moveGhost(ghost1, ghost1X, ghost1Y);
-        moveGhost(ghost2, ghost2X, ghost2Y);
-        moveGhost(ghost3, ghost3X, ghost3Y);
-        moveGhost(ghost4, ghost4X, ghost4Y);
+        moveGhost(ghost1, ghost1X, ghost1Y, 1);
+        moveGhost(ghost2, ghost2X, ghost2Y, 2);
+        moveGhost(ghost3, ghost3X, ghost3Y, 3);
+        moveGhost(ghost4, ghost4X, ghost4Y, 4);
         checkGhostCollision();
     }
 
-    function moveGhost(ghost, ghostX, ghostY) {
+    function moveGhost(ghost, ghostX, ghostY, ghostNum) {
         let directions = [
             { x: ghostX + step, y: ghostY },
             { x: ghostX - step, y: ghostY },
@@ -201,16 +198,16 @@ document.addEventListener('DOMContentLoaded', () => {
             ghost.style.left = move.x + 'px';
             ghost.style.top = move.y + 'px';
 
-            if (ghost === ghost1) {
+            if (ghostNum === 1) {
                 ghost1X = move.x;
                 ghost1Y = move.y;
-            } else if (ghost === ghost2) {
+            } else if (ghostNum === 2) {
                 ghost2X = move.x;
                 ghost2Y = move.y;
-            } else if (ghost === ghost3) {
+            } else if (ghostNum === 3) {
                 ghost3X = move.x;
                 ghost3Y = move.y;
-            } else if (ghost === ghost4) {
+            } else if (ghostNum === 4) {
                 ghost4X = move.x;
                 ghost4Y = move.y;
             }
