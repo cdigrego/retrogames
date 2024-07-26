@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const pacman = document.getElementById('pacman');
     const ghost1 = document.getElementById('ghost1');
     const ghost2 = document.getElementById('ghost2');
-	  const ghost3 = document.getElementById('ghost3');
-	    const ghost4 = document.getElementById('ghost4');
+    const ghost3 = document.getElementById('ghost3');
+    const ghost4 = document.getElementById('ghost4');
     const step = 30; // Step size in pixels
     const gameSize = 600; // Size of the game board
 
@@ -14,70 +14,63 @@ document.addEventListener('DOMContentLoaded', () => {
     let ghost1Y = 3 * step;
     let ghost2X = 5 * step;
     let ghost2Y = 5 * step;
-	   let ghost3X = 7 * step;
+    let ghost3X = 7 * step;
     let ghost3Y = 7 * step;
-	   let ghost4X = 9 * step;
+    let ghost4X = 9 * step;
     let ghost4Y = 9 * step;
 
     // Labirinto di esempio
     const walls = [
-	 // Primo quadrato
-    { x: 1, y: 1 }, { x: 2, y: 1 }, { x: 3, y: 1 }, { x: 4, y: 1 },
-    { x: 1, y: 2 }, { x: 4, y: 2 },
-    { x: 1, y: 3 }, { x: 4, y: 3 },
-    { x: 1, y: 4 }, { x: 2, y: 4 }, // x: 3, y: 4 , //  x: 4, y: 4 apre sotto,
-	  // Secondo quadrato
-    { x: 6, y: 1 }, { x: 8, y: 1 },
-    { x: 6, y: 2 }, { x: 8, y: 2 },
-    { x: 6, y: 3 }, { x: 8, y: 3 },
-    { x: 6, y: 4 }, { x: 7, y: 4 }, { x: 8, y: 4 },
-	  // 3 quadrato
-    { x: 10, y: 6 }, { x: 11, y: 6 },// { x: 12, y: 6 }, { x: 13, y: 6 },
-    { x: 10, y: 7 }, { x: 13, y: 7 },
-    { x: 10, y: 8 }, { x: 13, y: 8 },
-    { x: 10, y: 9 }, { x: 11, y: 9 }, { x: 12, y: 9 }, { x: 13, y: 9 },
-	  // 4 quadrato
-    { x: 15, y: 11 }, { x: 16, y: 11 }, { x: 17, y: 11 },
-    { x: 15, y: 12 }, { x: 17, y: 12 },
-    { x: 15, y: 13 },// { x: 17, y: 13 },
-    { x: 15, y: 14 }, { x: 16, y: 14 }, { x: 17, y: 14 },
-	
-	 // 5 quadrato
-    { x: 12, y: 1 }, 
-    { x: 12, y: 2 }, 
-    { x: 12, y: 3 }, 
-    { x: 12, y: 4 }, 
-	
-	
-	 // 6 quadrato
-    { x: 16, y: 1 }, 
-    { x: 16, y: 2 }, 
-    { x: 16, y: 3 }, 
-    { x: 16, y: 4 }, 
-	
-	
-	 // 6 quadrato
-    { x: 3, y: 7 }, 
-    { x: 3, y: 8 }, 
-    { x: 3, y: 9}, 
-    { x: 3, y: 10 }, 
-	
-	
-	 // 6 quadrato
-    { x: 4, y: 12 }, 
-    { x: 4, y: 13 }, 
-    { x: 4, y: 14}, 
-    { x: 4, y: 15 }, 
-	
-	
-	 // 6 quadrato
-    { x: 7, y: 16},  { x: 8, y: 16},  { x: 9, y: 16}, 
-    { x: 7, y: 17}, 
-    { x: 7, y: 18}, 
-    
-	
-];
+        // Primo quadrato
+        { x: 1, y: 1 }, { x: 2, y: 1 }, { x: 3, y: 1 }, { x: 4, y: 1 },
+        { x: 1, y: 2 }, { x: 4, y: 2 },
+        { x: 1, y: 3 }, { x: 4, y: 3 },
+        { x: 1, y: 4 }, { x: 2, y: 4 }, // { x: 3, y: 4 }, // { x: 4, y: 4 } apre sotto,
+        // Secondo quadrato
+        { x: 6, y: 1 }, { x: 8, y: 1 },
+        { x: 6, y: 2 }, { x: 8, y: 2 },
+        { x: 6, y: 3 }, { x: 8, y: 3 },
+        { x: 6, y: 4 }, { x: 7, y: 4 }, { x: 8, y: 4 },
+        // Terzo quadrato
+        { x: 10, y: 6 }, { x: 11, y: 6 }, // { x: 12, y: 6 }, { x: 13, y: 6 },
+        { x: 10, y: 7 }, { x: 13, y: 7 },
+        { x: 10, y: 8 }, { x: 13, y: 8 },
+        { x: 10, y: 9 }, { x: 11, y: 9 }, { x: 12, y: 9 }, { x: 13, y: 9 },
+        // Quarto quadrato
+        { x: 15, y: 11 }, { x: 16, y: 11 }, { x: 17, y: 11 },
+        { x: 15, y: 12 }, { x: 17, y: 12 },
+        { x: 15, y: 13 }, // { x: 17, y: 13 },
+        { x: 15, y: 14 }, { x: 16, y: 14 }, { x: 17, y: 14 },
 
+        // Quinto quadrato
+        { x: 12, y: 1 }, 
+        { x: 12, y: 2 }, 
+        { x: 12, y: 3 }, 
+        { x: 12, y: 4 },
+
+        // Sesto quadrato
+        { x: 16, y: 1 }, 
+        { x: 16, y: 2 }, 
+        { x: 16, y: 3 }, 
+        { x: 16, y: 4 },
+
+        // Settimo quadrato
+        { x: 3, y: 7 }, 
+        { x: 3, y: 8 }, 
+        { x: 3, y: 9}, 
+        { x: 3, y: 10 },
+
+        // Ottavo quadrato
+        { x: 4, y: 12 }, 
+        { x: 4, y: 13 }, 
+        { x: 4, y: 14}, 
+        { x: 4, y: 15 },
+
+        // Nono quadrato
+        { x: 7, y: 16},  { x: 8, y: 16},  { x: 9, y: 16}, 
+        { x: 7, y: 17}, 
+        { x: 7, y: 18}, 
+    ];
 
     walls.forEach(wall => {
         const wallElement = document.createElement('div');
@@ -107,9 +100,9 @@ document.addEventListener('DOMContentLoaded', () => {
     ghost1.style.top = ghost1Y + 'px';
     ghost2.style.left = ghost2X + 'px';
     ghost2.style.top = ghost2Y + 'px';
-	   ghost3.style.left = ghost3X + 'px';
+    ghost3.style.left = ghost3X + 'px';
     ghost3.style.top = ghost3Y + 'px';
-	   ghost4.style.left = ghost4X + 'px';
+    ghost4.style.left = ghost4X + 'px';
     ghost4.style.top = ghost4Y + 'px';
 
     document.addEventListener('keydown', (e) => {
@@ -175,24 +168,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function moveGhosts() {
-        moveGhost(ghost1, ghost1X, ghost1Y);
-        moveGhost(ghost2, ghost2X, ghost2Y);
-		  moveGhost(ghost3, ghost3X, ghost3Y);
-		    moveGhost(ghost4, ghost4X, ghost4Y);
+        moveGhost(ghost1, 1);
+        moveGhost(ghost2, 2);
+        moveGhost(ghost3, 3);
+        moveGhost(ghost4, 4);
         checkGhostCollision();
     }
 
-    function moveGhost(ghost, ghostX, ghostY) {
+    function moveGhost(ghost, ghostNum) {
         let directions = [
-            { x: ghostX + step, y: ghostY },
-            { x: ghostX - step, y: ghostY },
-            { x: ghostX, y: ghostY + step },
-            { x: ghostX, y: ghostY - step }
+            { x: ghost.offsetLeft + step, y: ghost.offsetTop },
+            { x: ghost.offsetLeft - step, y: ghost.offsetTop },
+            { x: ghost.offsetLeft, y: ghost.offsetTop + step },
+            { x: ghost.offsetLeft, y: ghost.offsetTop - step }
         ];
 
         directions = directions.filter(dir => canMove(dir.x, dir.y));
 
-       if (directions.length > 0) {
+        if (directions.length > 0) {
             const move = directions[Math.floor(Math.random() * directions.length)];
             ghost.style.left = move.x + 'px';
             ghost.style.top = move.y + 'px';
