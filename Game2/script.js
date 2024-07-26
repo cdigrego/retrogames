@@ -50,6 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
     { x: 16, y: 4 }, 
 	
 	
+	 // 6 quadrato
+    { x: 3, y: 7 }, 
+    { x: 3, y: 8 }, 
+    { x: 3, y: 9}, 
+    { x: 3, y: 10 }, 
+	
 	
 	
 	
