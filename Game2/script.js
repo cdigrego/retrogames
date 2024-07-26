@@ -192,40 +192,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
         directions = directions.filter(dir => canMove(dir.x, dir.y));
 
-        if (directions.length > 0) {
+       if (directions.length > 0) {
             const move = directions[Math.floor(Math.random() * directions.length)];
             ghost.style.left = move.x + 'px';
             ghost.style.top = move.y + 'px';
 
-            if (ghost === ghost1) {
+            if (ghostNum === 1) {
                 ghost1X = move.x;
                 ghost1Y = move.y;
-            } 
-			
-			else {
+            } else if (ghostNum === 2) {
                 ghost2X = move.x;
                 ghost2Y = move.y;
-            }
-			
-			else {
+            } else if (ghostNum === 3) {
                 ghost3X = move.x;
                 ghost3Y = move.y;
-            }
-			
-			
-			else {
+            } else if (ghostNum === 4) {
                 ghost4X = move.x;
                 ghost4Y = move.y;
             }
-			
-			
-			
-			
-			
-			
-			
-			
-			
         }
     }
 
