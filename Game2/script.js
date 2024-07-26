@@ -37,10 +37,22 @@ document.addEventListener('DOMContentLoaded', () => {
     { x: 15, y: 14 }, { x: 16, y: 14 }, { x: 17, y: 14 },
 	
 	 // 5 quadrato
-    { x: 12, y: 1 }, { x: 8, y: 1 }, { x: 3, y: 1 }, { x: 4, y: 1 },
-    { x: 12, y: 2 }, { x: 8, y: 2 },
-    { x: 12, y: 3 }, { x: 8, y: 3 },
-    { x: 12, y: 4 }, { x: 7, y: 4 }, // x: 3, y: 4 , //  x: 4, y: 4 apre sotto,
+    { x: 12, y: 1 }, 
+    { x: 12, y: 2 }, 
+    { x: 12, y: 3 }, 
+    { x: 12, y: 4 }, 
+	
+	
+	 // 6 quadrato
+    { x: 16, y: 1 }, 
+    { x: 16, y: 2 }, 
+    { x: 16, y: 3 }, 
+    { x: 16, y: 4 }, 
+	
+	
+	
+	
+	
 ];
 
 
