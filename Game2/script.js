@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const pacman = document.getElementById('pacman');
     const ghost1 = document.getElementById('ghost1');
     const ghost2 = document.getElementById('ghost2');
+	  const ghost3 = document.getElementById('ghost3');
+	    const ghost4 = document.getElementById('ghost4');
     const step = 30; // Step size in pixels
     const gameSize = 600; // Size of the game board
 
@@ -12,6 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let ghost1Y = 3 * step;
     let ghost2X = 5 * step;
     let ghost2Y = 5 * step;
+	   let ghost3X = 7 * step;
+    let ghost3Y = 7 * step;
+	   let ghost4X = 9 * step;
+    let ghost4Y = 9 * step;
 
     // Labirinto di esempio
     const walls = [
@@ -101,6 +107,10 @@ document.addEventListener('DOMContentLoaded', () => {
     ghost1.style.top = ghost1Y + 'px';
     ghost2.style.left = ghost2X + 'px';
     ghost2.style.top = ghost2Y + 'px';
+	   ghost3.style.left = ghost3X + 'px';
+    ghost3.style.top = ghost3Y + 'px';
+	   ghost4.style.left = ghost4X + 'px';
+    ghost4.style.top = ghost4Y + 'px';
 
     document.addEventListener('keydown', (e) => {
         let newX = pacmanX;
@@ -155,7 +165,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkGhostCollision() {
         if (
             (pacmanX === ghost1X && pacmanY === ghost1Y) ||
-            (pacmanX === ghost2X && pacmanY === ghost2Y)
+            (pacmanX === ghost2X && pacmanY === ghost2Y) ||
+            (pacmanX === ghost3X && pacmanY === ghost3Y) ||		
+            (pacmanX === ghost4X && pacmanY === ghost4Y)			
         ) {
             alert('Game Over!');
             location.reload();
@@ -165,6 +177,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function moveGhosts() {
         moveGhost(ghost1, ghost1X, ghost1Y);
         moveGhost(ghost2, ghost2X, ghost2Y);
+		  moveGhost(ghost3, ghost3X, ghost3Y);
+		    moveGhost(ghost4, ghost4X, ghost4Y);
         checkGhostCollision();
     }
 
@@ -186,10 +200,32 @@ document.addEventListener('DOMContentLoaded', () => {
             if (ghost === ghost1) {
                 ghost1X = move.x;
                 ghost1Y = move.y;
-            } else {
+            } 
+			
+			else {
                 ghost2X = move.x;
                 ghost2Y = move.y;
             }
+			
+			else {
+                ghost3X = move.x;
+                ghost3Y = move.y;
+            }
+			
+			
+			else {
+                ghost4X = move.x;
+                ghost4Y = move.y;
+            }
+			
+			
+			
+			
+			
+			
+			
+			
+			
         }
     }
 
